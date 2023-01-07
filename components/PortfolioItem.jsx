@@ -2,6 +2,7 @@
 
 //Importando motion
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { fadeIn } from '../utils/motion';
 
 
@@ -20,7 +21,7 @@ const PortfolioItem = ({ title, img, description, link, index }) => {
           <div className="product-circle"></div>
         </div>
         <a href={link} target="_blank" rel="noreferrer">
-          <img className="product-image" src={img} alt={title} loading="lazy" />
+          <Image className="product-image" src={img} alt={title} loading="lazy" width={100} height={100}/>
         </a>
       </article>
       {/* Información de cada proyecto */}

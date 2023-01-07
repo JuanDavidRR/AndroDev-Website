@@ -7,6 +7,9 @@ const nextConfig = {
     locales: ["es"],
     defaultLocale: "es",
   },
+  images: {
+    domains: ['i.imgur.com']
+  }
 };
 
 module.exports = nextConfig;

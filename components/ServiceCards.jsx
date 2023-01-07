@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { fadeIn } from "../utils/motion";
 
 const ServiceCards = ({
@@ -19,10 +20,13 @@ const ServiceCards = ({
     } flex items-center justify-center min-w-[170px] h-[600px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer`}
     onClick={() => handleClick(id)}
   >
-    <img
+    <Image
       src={imgUrl}
       alt="planet-04"
       className="absolute w-full h-full object-cover rounded-[24px] brightness-[40%]"
+      width={100}
+      height={100}
+      loading="lazy"
     />
     {/* Estilo del contenido de tarjetas cuando no están activas y cuando sí */}
     {active !== id ? (

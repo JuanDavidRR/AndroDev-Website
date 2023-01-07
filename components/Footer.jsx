@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { socials } from "../constants";
 
 import styles from "../styles";
@@ -26,11 +27,14 @@ const Footer = () => (
           {/* Redes sociales */}
           <div className="flex gap-4">
             {socials.map((social) => (
-              <img
+              <Image
                 key={social.name}
                 src={social.url}
                 alt={social.name}
                 className="w-[24px] h-[24px] object-contain cursor-pointer"
+                loading="lazy"
+                width={100}
+                height={100}
               />
             ))}
           </div>

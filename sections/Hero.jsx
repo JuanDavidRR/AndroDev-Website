@@ -6,23 +6,6 @@ import styles from "../styles";
 import { motion } from "framer-motion";
 import { fadeIn, staggerContainer, textVariant } from "../utils/motion";
 
-import { useState } from "react";
-
-//Iconos
-import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
-import { RxDotFilled } from "react-icons/rx";
-
-//Import Swiper components
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
-
-import { slides } from "../constants";
 import { Particle } from "../components";
 
 const Hero = () => {
@@ -32,7 +15,7 @@ const Hero = () => {
       id="inicio"
     >
       {/* Cargando las partículas dinámicas */}
-      <Particle />
+      {/* <Particle /> */}
       <motion.div
         variants={staggerContainer}
         initial="hidden"
