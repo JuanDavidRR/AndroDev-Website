@@ -22,10 +22,10 @@ const Particle = () => {
           color: {
             value: false,
           },
-          image: "",
-          position: "",
-          repeat: "",
-          size: "",
+          image: false,
+          position: false,
+          repeat: false,
+          size: false,
           opacity: 1,
         },
         backgroundMask: {
@@ -44,7 +44,7 @@ const Particle = () => {
           enable: true,
           zIndex: 0,
         },
-        detectRetina: true,
+        detectRetina: false,
         duration: 0,
         fpsLimit: 120,
         interactivity: {

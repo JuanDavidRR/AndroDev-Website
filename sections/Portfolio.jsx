@@ -1,15 +1,26 @@
 "use client";
 
+import React, { useMemo } from "react";
 import styles from "../styles";
-
-import PortfolioItem from "../components/PortfolioItem";
 
 import { portfolio } from "../constants";
 //Motion
 import { motion } from "framer-motion";
 import { fadeIn, staggerContainer } from "../utils/motion";
+import { Suspense, lazy } from "react";
+
+const PortfolioItem = lazy(() => import("../components/PortfolioItem"));
 
 const Portfolio = () => {
+  const portfolioItems = useMemo(
+    () =>
+      portfolio
+        .slice(0, 6)
+        .map((product, index) => (
+          <PortfolioItem key={product.id} {...product} index={index} />
+        )),
+    []
+  );
   return (
     <section className={`${styles.paddings} text-white z-50`} id="portfolio">
       <motion.section
@@ -44,15 +55,13 @@ const Portfolio = () => {
         </div>
         <div className="w-full">
           {/* Iterando items del portafolio */}
-          <ul className="portfolio-grid">
-            {portfolio.slice(0, 6).map((product, index) => (
-              <PortfolioItem key={product.id} {...product} index={index} />
-            ))}
-          </ul>
+          <Suspense fallback={<span>Cargando...</span>}>
+            <ul className="portfolio-grid">{portfolioItems}</ul>
+          </Suspense>
         </div>
       </motion.section>
     </section>
   );
 };
 
-export default Portfolio;
+export default React.memo(Portfolio);

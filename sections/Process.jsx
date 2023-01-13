@@ -9,6 +9,7 @@ import StartSteps from "../components/StartSteps";
 //Motion
 import { motion } from "framer-motion";
 import { staggerContainer, fadeIn, planetVariants } from "../utils/motion";
+import Image from "next/image";
 
 const Process = () => (
   <section className={`${styles.paddings} relative z-10`}>
@@ -32,10 +33,13 @@ const Process = () => (
         </section>
 
         {/* Imagen descriptiva */}
-        <img
-          src="/get-started.png"
+        <Image
+          src="/get-started.webp"
           alt="get-started"
           className="w-[90%] h-[90%] object-contain"
+          loading="lazy"
+          width={600}
+          height={600}
         />
       </motion.div>
       {/* Sección Derecha */}

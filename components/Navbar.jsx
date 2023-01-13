@@ -23,11 +23,11 @@ const Navbar = () => {
       document.body.scrollTop > 80 ||
       document.documentElement.scrollTop > 80
     ) {
-      document.getElementById("navbar").style.padding = "7px 20px";
-      document.getElementById("navbar").style.background = "#139cb5";
+      document.getElementById("navbar").style.padding = "1rem 2.5rem";
+      document.getElementById("navbar").style.background = "#0C7A8E";
       //document.getElementById("btn-nav").style.background = "#313131";
     } else {
-      document.getElementById("navbar").style.padding = "30px 20px";
+      document.getElementById("navbar").style.padding = "2rem 2.5rem";
       document.getElementById("navbar").style.background = "transparent";
       document.getElementById("navbar").style.transition = "0.4s";
       //document.getElementById("btn-nav").style.background = "#139cb5";
@@ -47,44 +47,59 @@ const Navbar = () => {
       variants={navVariants}
       initial="hidden"
       whileInView="show"
-      className={`${styles.xPaddings} py-8 fixed w-full z-[100] text-white`}
+      className={`${styles.xPaddings} py-8 lg:py-8 md:py-20 fixed w-full z-[100] text-white`}
     >
-      <div className="absolute w-[50%] inset-0 gradient-01" />
+      {/* <div className="absolute w-[50%] inset-0 gradient-01" /> */}
       <div
         className={`${styles.innerWidth} mx-auto flex items-center justify-between gap-8`}
       >
         {/* Logo de Inicio */}
-        <h2 className="font-extrabold text-[24px] leading-[30.24px] z-[100]">
-          <Link href="#inicio">ANDRODEV</Link>
+        <h2 className="font-extrabold text-[1.5rem] md:text-[2rem] md:py-4 leading-[30.24px] z-[100]">
+          <a href="#inicio">ANDRODEV</a>
         </h2>
-        
+
         {/* Items de navegación */}
         <ul
           className={`${styles.navbar} ${
             active ? `${styles.navActive}` : `${styles.navInactive}`
           }`}
         >
-          <Link href="#inicio">
-            <li>INICIO</li>
-          </Link>
-          <Link href="#nosotros">
-            <li>NOSOTROS</li>
-          </Link>
-          <Link href="#servicios">
-            <li>SERVICIOS</li>
-          </Link>
-          <Link href="#portfolio">
-            <li>PORTAFOLIO</li>
-          </Link>
-          <Link href="/test">
-            <li>BLOG</li>
-          </Link>
+          <li>
+            <a className={`${styles.navItem}`} href="#inicio">
+              INICIO
+            </a>
+          </li>
+          <li>
+            <a className={`${styles.navItem}`} href="#contacto">
+              NOSOTROS
+            </a>
+          </li>
+          <li>
+            <a className={`${styles.navItem}`} href="#servicios">
+              SERVICIOS
+            </a>
+          </li>
+          <li>
+            <a className={`${styles.navItem}`} href="#portfolio">
+              PORTAFOLIO
+            </a>
+          </li>
+          <li>
+            <a className={`${styles.navItem}`} href="#contacto">
+              | BLOG
+            </a>
+          </li>
+          <li>
+            <a className={`${styles.buttonCTA} lg:hidden`} href="#contacto">
+              INICIA YA
+            </a>
+          </li>
         </ul>
 
         {/* Boton CTA Contacto */}
-        <button className={`${styles.buttonCTA} hidden lg:flex md:flex`}>
-          <Link href="#contacto">INICIA YA</Link>
-        </button>
+        <a className={`${styles.buttonCTA} hidden lg:flex`} href="#contacto">
+          INICIA YA
+        </a>
         {/* Boton menú Hamburguesa  */}
         <div onClick={handleClick} className="lg:hidden">
           {active ? (
