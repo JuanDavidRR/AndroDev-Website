@@ -11,7 +11,7 @@ import { Particle } from "../components";
 const Hero = () => {
   return (
     <section
-      className={`${styles.yPaddings} h-[100vh]} text-white`}
+      className={`${styles.yPaddings} flex flex-col justify-center items-center h-[100vh] text-white`}
       id="inicio"
     >
       {/* Cargando las partículas dinámicas */}
@@ -29,7 +29,7 @@ const Hero = () => {
             variants={textVariant(1.1)}
             className={`${styles.slideTitle} py-10 lg:py-3`}
           >
-            <span className="text-primary-blue font-bold">ANDRODEV</span> ES TU
+            <span className="text-secondary-blue font-bold">ANDRODEV</span> ES TU
             AGENCIA DE DESARROLLO WEB
           </motion.h1>
           <motion.div
@@ -37,7 +37,7 @@ const Hero = () => {
             className="flex flex-row justify-center items-center"
           >
             <h2 className={`${styles.heroHeading}`}>
-              <span className="text-primary-blue">TRANSFORMEMOS</span> <br /> TU
+              <span className="text-secondary-blue">TRANSFORMEMOS</span> <br /> TU
               NEGOCIO
             </h2>
           </motion.div>
@@ -88,7 +88,7 @@ const Hero = () => {
         <section className="lg:w-[70%] w-[80%] mx-auto flex flex-col items-center text-center py-8">
           <motion.p
             variants={textVariant(1.8)}
-            className="text-[1.4rem] leading-8"
+            className="text-[1.4rem] lg:text-[1.3rem] leading-6 md:leading-10 md:text-[2rem]"
           >
             Mediante nuestros servicios web prepara tu negocio para dar el
             siguiente paso: <strong>La prosperidad digital</strong>. Vamos

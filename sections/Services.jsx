@@ -2,7 +2,7 @@
 
 import styles from "../styles";
 
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 
 //Motion
 import { motion } from "framer-motion";
@@ -11,7 +11,7 @@ import { fadeIn, staggerContainer } from "../utils/motion";
 import { webservices, seoWords } from "../constants";
 import { TypingText } from "../components";
 
-import ExploreCard from "../components/ServiceCards";
+const ServiceCards = lazy(() => import("../components/ServiceCards"));
 
 const Services = () => {
   const [active, setActive] = useState("world-2");
@@ -57,15 +57,17 @@ const Services = () => {
         </motion.h2>
         {/* Iterando items de desarrollo web */}
         <div className="mt-[50px] flex lg:flex-row flex-col min-h-[90vh] gap-5">
-          {webservices.map((word, index) => (
-            <ExploreCard
-              key={word.id}
-              {...word}
-              active={active}
-              index={index}
-              handleClick={setActive}
-            />
-          ))}
+          <Suspense fallback={<span>Cargando...</span>}>
+            {webservices.map((word, index) => (
+              <ServiceCards
+                key={word.id}
+                {...word}
+                active={active}
+                index={index}
+                handleClick={setActive}
+              />
+            ))}
+          </Suspense>
         </div>
 
         {/* Sección Posicionamiento web */}
@@ -76,17 +78,19 @@ const Services = () => {
           POSICIONAMIENTO SEO
         </motion.h2>
         {/* Iterando items de SEO */}
+        <Suspense fallback={<span>Cargando...</span>}>
         <div className="mt-[50px] flex lg:flex-row flex-col min-h-[90vh] gap-5">
-          {seoWords.map((word, index) => (
-            <ExploreCard
-              key={word.id}
-              {...word}
-              active={seoActive}
-              index={index}
-              handleClick={setSeoActive}
-            />
-          ))}
+            {seoWords.map((word, index) => (
+              <ServiceCards
+                key={word.id}
+                {...word}
+                active={seoActive}
+                index={index}
+                handleClick={setSeoActive}
+              />
+            ))}
         </div>
+        </Suspense>
       </motion.div>
     </section>
   );

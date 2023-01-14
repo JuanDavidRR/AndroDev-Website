@@ -23,9 +23,8 @@ const ServiceCards = ({
     <Image
       src={imgUrl}
       alt="planet-04"
-      className="absolute w-full h-full object-cover rounded-[24px] brightness-[40%]"
-      width={100}
-      height={100}
+      className={`absolute w-full h-full object-cover rounded-[24px] ${active === id ? "brightness-[70%]" : "brightness-[30%]"}`}
+      fill
       loading="lazy"
     />
     {/* Estilo del contenido de tarjetas cuando no están activas y cuando sí */}
@@ -34,7 +33,7 @@ const ServiceCards = ({
         {title}
       </h3>
     ) :    (
-      <div className="absolute bottom-0 p-8 flex justify-start w-full flex-col bg-[rgba(0,0,0,0.69)] rounded-b-[24px] h-auto">
+      <div className="absolute bottom-0 p-8 flex justify-start w-full flex-col bg-[rgba(0,0,0,0.84)] rounded-b-[24px] h-auto">
         <p className="text-[1rem] leading-8">{description}</p>
         <h2 className="mt-[24px] font-semibold sm:text-[32px] text-[24px] text-white">
           {title}

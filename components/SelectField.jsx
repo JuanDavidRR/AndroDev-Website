@@ -4,7 +4,7 @@ export const SelectField = ({
   name,
   value,
   options,
-  onChange,
+  onChange: handler,
   label,
   className = '',
   placeholder,
@@ -43,7 +43,7 @@ export const SelectField = ({
       name={name}
       value={value}
       options={options}
-      onChange={newValue => onChange(newValue, name)}
+      onChange={newValue => handler(newValue, name)}
       isClearable={isClearable}
       isDisabled={disabled}
       styles={{

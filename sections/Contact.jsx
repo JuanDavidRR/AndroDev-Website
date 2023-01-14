@@ -32,6 +32,8 @@ const Contact = () => {
     service: "",
   });
 
+  const selectOptions = ["Desarrollo Web", "Posicionamiento SEO"];
+
   //Acción al enviar formulario
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -97,7 +99,10 @@ const Contact = () => {
           </h4>
           <ul className="flex gap-[2rem]">
             <li className="my-[1rem]">
-              <a className="flex items-center" href="">
+              <a
+                className="flex items-center"
+                href="https://www.instagram.com/juanelcj/"
+              >
                 <AiFillLinkedin
                   className="mr-[1rem]"
                   size="2rem"
@@ -107,7 +112,10 @@ const Contact = () => {
               </a>
             </li>
             <li className="my-[1rem] flex">
-              <a className="flex items-center" href="">
+              <a
+                className="flex items-center"
+                href="https://www.linkedin.com/in/david-romero-58b7621a8/"
+              >
                 <FiInstagram
                   className="mr-[1rem]"
                   size="2rem"
@@ -124,13 +132,14 @@ const Contact = () => {
           variants={fadeIn("left", "tween", 0.2, 1)}
           onSubmit={handleSubmit}
           ref={dataForm}
-          className="flex flex-col flex-[0.80] border-solid border-[#ababab5b] border-[1px] text-cener pt-3 pb-10 px-[2rem] bg-[#1f3346a4] rounded-2xl text-white"
+          className="flex flex-col flex-[0.80] border-solid border-[#ababab5b] border-[1px] text-cener py-10 px-[1rem] lg:px-[2rem] bg-[#1f3346a4] rounded-2xl text-white"
         >
           <div className="flex flex-col lg:flex-row">
             {/* Nombre completo */}
-            <fieldset className="w-full text-center">
+            <fieldset className="w-full text-white px-4">
+              <label htmlFor="servicio">Nombre Completo <span className="text-red-500">*</span></label>
               <TextField
-                className="flex text-cener py-[2rem] px-[1rem]"
+                className="py-[1rem]"
                 fieldClassName={`${styles.formField}`}
                 placeholder="Nombre Completo"
                 value={form.name}
@@ -142,25 +151,27 @@ const Contact = () => {
             </fieldset>
 
             {/* Número de teléfono */}
-            <fieldset className="w-full">
+            <fieldset className="w-full text-white px-4">
+              <label htmlFor="servicio">Teléfono Completo <span className="text-red-500">*</span></label>
               <TextField
-                className="flex  py-[2rem] px-[1rem]"
+                className="py-[1rem]"
                 fieldClassName={`${styles.formField}`}
                 placeholder="Numero celular"
                 value={form.phoneNumber}
                 handler={handleFormChange}
                 name="phoneNumber"
-                type="tel"
+                type="number"
                 typeField="input"
               />
             </fieldset>
           </div>
 
           {/* Email completo */}
-          <div className="flex flex-col lg:flex-row">
-            <fieldset className="w-full text-center text-white">
+          <div className="flex flex-col lg:flex-row my-6">
+            <fieldset className="w-full text-white px-4">
+              <label htmlFor="servicio">Correo Electrónico <span className="text-red-500">*</span></label>
               <TextField
-                className="flex border-solid border-whitet text-cener py-[2rem] px-[1rem]"
+                className="py-[1rem]"
                 fieldClassName={`${styles.formField}`}
                 placeholder="Correo electronico"
                 value={form.email}
@@ -172,25 +183,28 @@ const Contact = () => {
             </fieldset>
 
             {/* Selector de servicios */}
-            <fieldset className="w-full text-center text-white">
+            <fieldset className="w-full text-white px-4">
+              <label htmlFor="servicio">Selecciona un Servicio <span className="text-red-500">*</span></label>
               <TextField
-                className="flex py-[2rem] px-[1rem]"
+                aria-label="Select Service"
+                className="py-[1rem]"
                 fieldClassName={`${styles.formField}`}
                 placeholder="¿Qué servicio Necesitas?"
-                value={form.name}
+                value={form.service}
                 handler={handleFormChange}
                 name="service"
-                type="text"
-                typeField="input"
+                id="servicio"
+                options={selectOptions}
               />
             </fieldset>
           </div>
 
           {/* Campo de texto de resumen */}
-          <fieldset>
+          <fieldset className="w-full text-white px-4">
+          <label htmlFor="servicio">Cuéntanos de tu proyecto...</label>
             <TextField
-              className="flexborder-solid border-white text-cener py-[2rem] px-[1rem]"
-              fieldClassName="p-[0.7rem] my-[0.5] w-full text-[1rem] bg-[transparent] border-[1px] border-white border-solid focus:outline-primary-blue"
+              className="flexborder-solid border-white text-cener py-[1rem]"
+              fieldClassName="p-5 my-[0.5] w-full text-[1rem] bg-[transparent] border-[1px] border-white border-solid focus:outline-primary-blue"
               value={form.message}
               placeholder="Hablanos de tu proyecto..."
               handler={handleFormChange}
@@ -206,7 +220,6 @@ const Contact = () => {
             Enviar
           </button>
         </motion.form>
-        
       </motion.div>
     </div>
   );

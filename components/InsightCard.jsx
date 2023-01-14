@@ -15,14 +15,15 @@ const InsightCard = ({ imgUrl, title, subtitle, index }) => (
       alt="planet-01"
       className="flex-1 md:w-[200px] w-full h-[200px] rounded-[32px] object-cover"
       loading="lazy"
-      width={100}
-      height={100}
+      width={150}
+      height={150}
+      
     />
     <div className="w-full flex-5 flex justify-between items-center">
       <div className="w-[100%] sm:w-[100%] md:w-[100%] lg:w-[80%] md:ml-[62px] flex flex-col">
-        <h4 className="font-normal lg:text-[2rem] text-[2rem] text-white">
+        <span className="font-normal lg:text-[2rem] text-[2rem] text-white">
           {title}
-        </h4>
+        </span>
         <p className="mt-[16px] font-normal lg:text-[20px] text-[14px] text-secondary-white">
           {subtitle}
         </p>

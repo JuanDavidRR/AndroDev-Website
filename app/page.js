@@ -1,39 +1,41 @@
 //page.js es un componente por defecto que permite definir la página home
 
 //Para componentes del cliente usamos use client
-'use client';
+"use client";
 
-// Secciones del sitio reutilizables /sections
-import About from "../sections/About";
-import Services from "../sections/Services";
-import Blog from "../sections/Blog";
-import Portfolio from "../sections/Portfolio";
-import Contact from "../sections/Contact";
-import Process from "../sections/Process";
+import { Suspense, lazy } from "react";
+
 import Hero from "../sections/Hero";
 
+const About = lazy(() => import("../sections/About"));
+const Services = lazy(() => import("../sections/Services"));
+const Blog = lazy(() => import("../sections/Blog"));
+const Portfolio = lazy(() => import("../sections/Portfolio"));
+const Contact = lazy(() => import("../sections/Contact"));
+const Process = lazy(() => import("../sections/Process"));
 
 const Page = () => (
-  <div className="bg-primary-black overflow-hidden">
+  <>
     <Hero />
-    <div className="relative">
-      <About />
-      <div className="gradient-03 z-0" />
-      <Services />
-      <div className="gradient-04 z-0" />
-
-      <Portfolio />
-      <Process />
-    </div>
-    <div className="relative">
-      <div className="gradient-04 z-0" />
-    </div>
-    <div className="relative">
-      <Blog />
-      <Contact />
-      <div className="gradient-04 z-0" />
-    </div>
-  </div>
+    <Suspense fallback={<span>Cargando...</span>}>
+      <div className="relative">
+        <About />
+        {/* <div className="gradient-03 z-0" /> */}
+        <Services />
+        {/* <div className="gradient-04 z-0" /> */}
+        <Portfolio />
+        <Process />
+      </div>
+      <div className="relative">
+        {/* <div className="gradient-04 z-0" /> */}
+      </div>
+      <div className="relative">
+        <Blog />
+        <Contact />
+        {/* <div className="gradient-04 z-0" /> */}
+      </div>
+    </Suspense>
+  </>
 );
 
 export default Page;

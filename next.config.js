@@ -3,6 +3,7 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  mode: 'production',
   i18n: {
     locales: ["es"],
     defaultLocale: "es",

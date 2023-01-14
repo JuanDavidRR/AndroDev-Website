@@ -7,7 +7,9 @@ import { motion } from "framer-motion";
 import { fadeIn, staggerContainer } from "../utils/motion";
 
 import { blogArticles } from "../constants";
-import { InsightCard } from "../components";
+import { lazy, Suspense } from "react";
+
+const InsightCard = lazy(() => import("../components/InsightCard"));
 
 const Blog = () => (
   <section className={`${styles.paddings} relative z-10 text-white`} id="blog">
@@ -18,7 +20,6 @@ const Blog = () => (
       viewport={{ once: false, amount: 0.25 }}
       className={`${styles.innerWidth} mx-auto flex flex-col`}
     >
-
       <div className="section__title">
         <section className="flex gap-5 items-center mb-6 z-50">
           <div className="w-[100px] h-[2px] bg-primary-blue"></div>
@@ -34,12 +35,13 @@ const Blog = () => (
       </motion.h2>
 
       {/* Iterando entradas del blog */}
-      <div className="mt-[50px] flex flex-col gap-[30px]">
-        {blogArticles.map((item, index) => (
-          <InsightCard key={`insight-${index}`} {...item} index={index + 1} />
-        ))}
-      </div>
-
+      <Suspense fallback={<span>Cargando...</span>}>
+        <div className="mt-[50px] flex flex-col gap-[30px]">
+          {blogArticles.map((item, index) => (
+            <InsightCard key={`insight-${index}`} {...item} index={index + 1} />
+          ))}
+        </div>
+      </Suspense>
     </motion.div>
   </section>
 );

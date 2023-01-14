@@ -38,8 +38,8 @@ const Process = () => (
           alt="get-started"
           className="w-[90%] h-[90%] object-contain"
           loading="lazy"
-          width={100}
-          height={100}
+          width={600}
+          height={600}
         />
       </motion.div>
       {/* Sección Derecha */}
