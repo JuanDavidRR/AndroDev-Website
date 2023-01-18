@@ -5,6 +5,7 @@ import styles from "../styles";
 import { motion } from "framer-motion";
 import { fadeIn } from "../utils/motion";
 import { staggerContainer } from "../utils/motion";
+import SelectField from '../components/SelectField';
 
 //React
 import React, { useRef } from "react";
@@ -32,7 +33,7 @@ const Contact = () => {
     service: "",
   });
 
-  const selectOptions = ["Desarrollo Web", "Posicionamiento SEO"];
+  const selectOptions = [{ value: 'Desarrollo Web', label: 'Desarrollo Web'}, { value: 'Posicionamiento SEO', label: 'Posicionamiento SEO'}];
 
   //Acción al enviar formulario
   const handleSubmit = (e) => {
@@ -183,18 +184,17 @@ const Contact = () => {
             </fieldset>
 
             {/* Selector de servicios */}
-            <fieldset className="w-full text-white px-4">
+            <fieldset className="w-full text-white px-4 flex flex-col gap-[1.38rem]">
               <label htmlFor="servicio">Selecciona un Servicio <span className="text-red-500">*</span></label>
-              <TextField
-                aria-label="Select Service"
-                className="py-[1rem]"
-                fieldClassName={`${styles.formField}`}
-                placeholder="¿Qué servicio Necesitas?"
+              <SelectField
+                placeholder='¿Qué servicio Necesitas?'
                 value={form.service}
                 handler={handleFormChange}
-                name="service"
-                id="servicio"
+                name='service'
                 options={selectOptions}
+                backgroundColor='transparent'
+                colorPlaceholder='#9ca3af'
+                borderBottom='1px solid white'
               />
             </fieldset>
           </div>
